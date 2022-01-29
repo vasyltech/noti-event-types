@@ -1,0 +1,17 @@
+{
+    "Event": "filter:upgrader_install_package_result",
+    "Level": "attention",
+    "RequiredVersion": "WordPress 5.7.0+",
+    "Metadata": {
+        "user_id": "${USER.ID}",
+        "user_ip": "${USER.ip}",
+        "plugin": "${FUNC.get_plugin_data(ARGS.1.plugin).Name}"
+    },
+    "Condition": {
+        "Equals": {
+            "(*boolean)${FUNC.is_wp_error(ARGS.0)}": false,
+            "${ARGS.1.action}": "update"
+        }
+    },
+    "MessageMarkdown": "**${FUNC.get_userdata(META.user_id).display_name}** updated the **${META.plugin}** plugin"
+}

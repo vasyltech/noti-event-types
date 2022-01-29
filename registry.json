@@ -1,0 +1,16 @@
+[
+    {
+        "guid": "648112da-6b94-49ed-96cd-d2246fa147fd",
+        "title": "Plugin Activation",
+        "excerpt": "Track any plugin activation by a user from the WordPress backend \"Plugin Area\", via RESTful API or WordPress CLI.",
+        "category": "Plugin Management",
+        "status": "active"
+    },
+    {
+        "guid": "322ea61c-9466-49b6-b0bf-714790caefe2",
+        "title": "Plugin Update",
+        "excerpt": "Track any plugin updates (upgrades) by a user from the WordPress backend \"Plugin Area\", via RESTful API or WordPress CLI.",
+        "category": "Plugin Management",
+        "status": "active"
+    }
+]
