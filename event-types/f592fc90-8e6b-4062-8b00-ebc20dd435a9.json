@@ -1,0 +1,24 @@
+{
+    "Event": "filter:pre_update_site_option_auto_update_plugins",
+    "Level": "notice",
+    "RequiredVersion": "WordPress 3.7.0+",
+    "Metadata": {
+        "user_id": "${USER.ID}",
+        "user_ip": "${USER.ip}",
+        "state": "${HTTP_POST.state}",
+        "plugin": "${FUNC.get_plugin_data(HTTP_POST.asset).Name}",
+        "network_id": "${ARGS.3}"
+    },
+    "Condition": {
+        "Equals": {
+            "${HTTP_POST.action}": "toggle-auto-updates",
+            "${HTTP_POST.type}": "plugin"
+        }
+    },
+    "MessageMarkdown": "**${FUNC.get_userdata(EVENT_META.user_id).display_name}** toggled (${EVENT_META.state}) auto-update for the **${EVENT_META.plugin}** plugin",
+    "Notifications": [
+        {
+            "Type": "email"
+        }
+    ]
+}

@@ -13,5 +13,10 @@
             "${ARGS.1.action}": "update"
         }
     },
-    "MessageMarkdown": "**${FUNC.get_userdata(META.user_id).display_name}** updated the **${META.plugin}** plugin"
+    "MessageMarkdown": "**${FUNC.get_userdata(META.user_id).display_name}** updated the **${META.plugin}** plugin",
+    "Notifications": [
+        {
+            "Type": "email"
+        }
+    ]
 }

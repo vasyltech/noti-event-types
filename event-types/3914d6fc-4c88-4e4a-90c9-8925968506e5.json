@@ -1,0 +1,21 @@
+{
+    "Event": "action:upgrader_process_complete",
+    "Level": "critical",
+    "RequiredVersion": "WordPress 2.8.0+",
+    "Metadata": {
+        "user_id": "${USER.ID}",
+        "user_ip": "${USER.ip}"
+    },
+    "Condition": {
+        "Equals": {
+            "${ARGS.1.action}": "update",
+            "${ARGS.1.type}": "core"
+        }
+    },
+    "MessageMarkdown": "**${FUNC.get_userdata(EVENT_META.user_id).display_name}** updated the WordPress core to the latest version",
+    "Notifications": [
+        {
+            "Type": "email"
+        }
+    ]
+}

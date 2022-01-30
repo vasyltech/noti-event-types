@@ -1,0 +1,22 @@
+{
+    "Event": "action:wp_ajax_edit-theme-plugin-file",
+    "Level": "critical",
+    "RequiredVersion": "WordPress 4.9.0+",
+    "Metadata": {
+        "user_id": "${USER.ID}",
+        "user_ip": "${USER.ip}",
+        "plugin": "${FUNC.get_plugin_data(HTTP_POST.plugin).Name}",
+        "file": "${HTTP_POST.file}"
+    },
+    "Condition": {
+        "NotEquals": {
+            "(*null)${HTTP_POST.plugin}": null
+        }
+    },
+    "MessageMarkdown": "**${FUNC.get_userdata(META.user_id).display_name}** updated **${META.file}** file in the **${META.plugin}** plugin",
+    "Notifications": [
+        {
+            "Type": "email"
+        }
+    ]
+}

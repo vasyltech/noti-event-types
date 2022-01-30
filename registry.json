@@ -1,16 +1,79 @@
 [
     {
+        "guid": "3914d6fc-4c88-4e4a-90c9-8925968506e5",
+        "title": "WordPress Core Update",
+        "excerpt": "Track when a user from the WordPress backend \"Plugins\" page or through CLI upgraded the WordPress core.",
+        "category": "Core Management",
+        "status": "active"
+    },
+    {
         "guid": "648112da-6b94-49ed-96cd-d2246fa147fd",
         "title": "Plugin Activation",
-        "excerpt": "Track any plugin activation by a user from the WordPress backend \"Plugin Area\", via RESTful API or WordPress CLI.",
+        "excerpt": "Track any plugin activation by a user from the WordPress backend \"Plugins\" page, via RESTful API or WordPress CLI.",
         "category": "Plugin Management",
         "status": "active"
     },
     {
         "guid": "322ea61c-9466-49b6-b0bf-714790caefe2",
         "title": "Plugin Update",
-        "excerpt": "Track any plugin updates (upgrades) by a user from the WordPress backend \"Plugin Area\", via RESTful API or WordPress CLI.",
+        "excerpt": "Track any plugin updates (upgrades) by a user from the WordPress backend \"Plugins\" page, via RESTful API or WordPress CLI.",
         "category": "Plugin Management",
+        "status": "active"
+    },
+    {
+        "guid": "c7d7c224-0c48-4b64-a67c-d18eac19c01d",
+        "title": "Plugin Deactivation",
+        "excerpt": "Track any plugin deactivation by a user from the WordPress backend \"Plugins\" page, via RESTful API or WordPress CLI.",
+        "category": "Plugin Management",
+        "status": "active"
+    },
+    {
+        "guid": "87df3855-d38b-44f2-a483-2bccdee8f060",
+        "title": "Plugin Installation",
+        "excerpt": "Track any plugin installation by a user from the WordPress backend \"Plugins\" page, via RESTful API or WordPress CLI.",
+        "category": "Plugin Management",
+        "status": "active"
+    },
+    {
+        "guid": "4882d8b6-b32d-4e2b-8d0f-1074ab214051",
+        "title": "Plugin Deletion",
+        "excerpt": "Track any plugin deletion by a user from the WordPress backend \"Plugins\" page, via RESTful API or WordPress CLI.",
+        "category": "Plugin Management",
+        "status": "active"
+    },
+    {
+        "guid": "568732b9-cca0-467c-97e8-89a5432a4bf1",
+        "title": "Plugin's File Updated",
+        "excerpt": "Track changes to any plugin's file by a user from the WordPress backend \"Plugin Editor\" page.",
+        "category": "Plugin Management",
+        "status": "active"
+    },
+    {
+        "guid": "f592fc90-8e6b-4062-8b00-ebc20dd435a9",
+        "title": "Toggled Auto-Update For A Plugin",
+        "excerpt": "Track when a user toggled either enable or disable auto-update for a plugin on the \"Plugins\" page.",
+        "category": "Plugin Management",
+        "status": "active"
+    },
+    {
+        "guid": "e08dafdc-5ef8-47a6-b25c-207547445601",
+        "title": "Enabled Multiple Plugins Auto-Update",
+        "excerpt": "Track when a user enabled auto-update for one or multiple plugins on the \"Plugins\" page.",
+        "category": "Plugin Management",
+        "status": "active"
+    },
+    {
+        "guid": "374eca2c-6661-414d-81c4-d45fa58eb18b",
+        "title": "Disabled Multiple Plugins Auto-Update",
+        "excerpt": "Track when a user disabled auto-update for one or multiple plugins on the \"Plugins\" page.",
+        "category": "Plugin Management",
+        "status": "active"
+    },
+    {
+        "guid": "bf9209cf-3434-4bff-9d4e-014378ab481a",
+        "title": "Theme's File Updated",
+        "excerpt": "Track changes to any theme's file by a user from the WordPress backend \"Theme Editor\" page.",
+        "category": "Theme Management",
         "status": "active"
     }
 ]
