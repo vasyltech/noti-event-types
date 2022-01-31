@@ -15,7 +15,7 @@
         "user_ip": "${USER.ip}",
         "plugin": "${LISTENER.0.plugin}"
     },
-    "LogMessageMarkdown": "**${FUNC.get_userdata(META.user_id).display_name}** deleted the **${META.plugin}** plugin",
+    "MessageMarkdown": "**${FUNC.get_userdata(EVENT_META.user_id).display_name}** deleted the **${EVENT_META.plugin}** plugin",
     "Notifications": [
         {
             "Type": "email"

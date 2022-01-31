@@ -6,8 +6,7 @@
         "user_id": "${USER.ID}",
         "user_ip": "${USER.ip}",
         "state": "${HTTP_POST.state}",
-        "plugin": "${FUNC.get_plugin_data(HTTP_POST.asset).Name}",
-        "network_id": "${ARGS.3}"
+        "plugin": "${FUNC.get_plugin_data(HTTP_POST.asset).Name}"
     },
     "Condition": {
         "Equals": {
@@ -15,7 +14,7 @@
             "${HTTP_POST.type}": "plugin"
         }
     },
-    "MessageMarkdown": "**${FUNC.get_userdata(EVENT_META.user_id).display_name}** toggled (${EVENT_META.state}) auto-update for the **${EVENT_META.plugin}** plugin",
+    "MessageMarkdown": "**${FUNC.get_userdata(EVENT_META.user_id).display_name}** toggled ${EVENT_META.state} auto-update for the **${EVENT_META.plugin}** plugin",
     "Notifications": [
         {
             "Type": "email"

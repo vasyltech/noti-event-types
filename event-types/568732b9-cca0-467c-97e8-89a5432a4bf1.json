@@ -13,7 +13,7 @@
             "(*null)${HTTP_POST.plugin}": null
         }
     },
-    "MessageMarkdown": "**${FUNC.get_userdata(META.user_id).display_name}** updated **${META.file}** file in the **${META.plugin}** plugin",
+    "MessageMarkdown": "**${FUNC.get_userdata(EVENT_META.user_id).display_name}** updated **${EVENT_META.file}** file in the **${EVENT_META.plugin}** plugin",
     "Notifications": [
         {
             "Type": "email"

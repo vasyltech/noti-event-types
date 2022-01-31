@@ -1,19 +1,19 @@
 {
     "Event": "filter:upgrader_process_complete",
-    "Level": "critical",
+    "Level": "warning",
     "RequiredVersion": "WordPress 5.5.0+",
     "Metadata": {
         "user_id": "${USER.ID}",
         "user_ip": "${USER.ip}",
-        "plugin": "${ARGS.0.new_plugin_data.Name}"
+        "theme": "${ARGS.0.new_theme_data.Name}"
     },
     "Condition": {
         "Equals": {
             "${ARGS.1.action}": "install",
-            "${ARGS.1.type}": "plugin"
+            "${ARGS.1.type}": "theme"
         }
     },
-    "MessageMarkdown": "**${FUNC.get_userdata(EVENT_META.user_id).display_name}** installed the **${EVENT_META.plugin}** plugin",
+    "MessageMarkdown": "**${FUNC.get_userdata(EVENT_META.user_id).display_name}** installed the **${EVENT_META.theme}** theme",
     "Notifications": [
         {
             "Type": "email"

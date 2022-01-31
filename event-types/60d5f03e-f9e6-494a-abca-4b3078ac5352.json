@@ -1,0 +1,17 @@
+{
+    "Event": "filter:pre_update_site_option_auto_update_themes",
+    "Level": "notice",
+    "Metadata": {
+        "user_id": "${USER.ID}",
+        "user_ip": "${USER.ip}",
+        "state": "${HTTP_POST.state}",
+        "theme": "${FUNC.wp_get_theme(HTTP_POST.asset).name}"
+    },
+    "Condition": {
+        "Equals": {
+            "${HTTP_POST.action}": "toggle-auto-updates",
+            "${HTTP_POST.type}": "theme"
+        }
+    },
+    "MessageMarkdown": "**${FUNC.get_userdata(EVENT_META.user_id).display_name}** toggled ${EVENT_META.state} auto-update for the **${EVENT_META.theme}** theme"
+}

@@ -75,5 +75,26 @@
         "excerpt": "Track changes to any theme's file by a user from the WordPress backend \"Theme Editor\" page.",
         "category": "Theme Management",
         "status": "active"
+    },
+    {
+        "guid": "e8f39a63-bffb-4122-b4e9-109689abfb30",
+        "title": "Theme Installation",
+        "excerpt": "Track any theme installation by a user from the WordPress backend \"Appearance\" page, via RESTful API or WordPress CLI.",
+        "category": "Theme Management",
+        "status": "active"
+    },
+    {
+        "guid": "b06d8a45-1319-440e-a3f8-4bdb958def29",
+        "title": "Theme Updated",
+        "excerpt": "Track any theme update by a user from the WordPress backend \"Appearance\" page, via RESTful API or WordPress CLI.",
+        "category": "Theme Management",
+        "status": "active"
+    },
+    {
+        "guid": "60d5f03e-f9e6-494a-abca-4b3078ac5352",
+        "title": "Toggled Auto-Update For A Theme",
+        "excerpt": "Track when a user toggled either enable or disable auto-update for a theme on the \"Appearance\" page.",
+        "category": "Theme Management",
+        "status": "active"
     }
 ]

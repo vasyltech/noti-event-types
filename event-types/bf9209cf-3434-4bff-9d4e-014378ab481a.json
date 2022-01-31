@@ -13,7 +13,7 @@
             "(*null)${HTTP_POST.theme}": null
         }
     },
-    "MessageMarkdown": "**${FUNC.get_userdata(META.user_id).display_name}** updated **${META.file}** file in the **${META.theme}** theme",
+    "MessageMarkdown": "**${FUNC.get_userdata(EVENT_META.user_id).display_name}** updated **${EVENT_META.file}** file in the **${EVENT_META.theme}** theme",
     "Notifications": [
         {
             "Type": "email"
