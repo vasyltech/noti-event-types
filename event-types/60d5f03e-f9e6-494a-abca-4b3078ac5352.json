@@ -13,5 +13,10 @@
             "${HTTP_POST.type}": "theme"
         }
     },
-    "MessageMarkdown": "**${FUNC.get_userdata(EVENT_META.user_id).display_name}** toggled ${EVENT_META.state} auto-update for the **${EVENT_META.theme}** theme"
+    "MessageMarkdown": "**${FUNC.get_userdata(EVENT_META.user_id).display_name}** toggled ${EVENT_META.state} auto-update for the **${EVENT_META.theme}** theme",
+    "Notifications": [
+        {
+            "Type": "email"
+        }
+    ]
 }

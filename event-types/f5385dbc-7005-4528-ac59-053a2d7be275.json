@@ -1,0 +1,33 @@
+{
+    "Event": "action:transition_post_status",
+    "Level": "notice",
+    "Metadata": {
+        "user_id": "${USER.ID}",
+        "user_ip": "${USER.ip}",
+        "post_id": "${ARGS.2.ID}",
+        "post_title": "${ARGS.2.post_title}",
+        "old_status": "${ARGS.1}",
+        "new_status": "${ARGS.0}"
+    },
+    "Condition": {
+        "Equals": {
+            "${ARGS.2.post_type}": "post"
+        },
+        "NotEquals": {
+            "${ARGS.0}": "new",
+            "${ARGS.1}": "${ARGS.0}"
+        },
+        "NotIn": {
+            "${ARGS.1}": [
+                "new",
+                "auto-draft"
+            ]
+        }
+    },
+    "MessageMarkdown": "**${FUNC.get_userdata(EVENT_META.user_id).display_name}** change the **${EVENT_META.post_title}** (ID: ${EVENT_META.post_id}) post's status from ${EVENT_META.old_status} to ${EVENT_META.new_status}",
+    "Notifications": [
+        {
+            "Type": "email"
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "Event": "action:profile_update",
+    "Level": "notice",
+    "RequiredVersion": "WordPress 2.0.0+",
+    "Metadata": {
+        "user_id": "${ARGS.0}",
+        "user_ip": "${USER.ip}"
+    },
+    "MessageMarkdown": "User **${FUNC.get_userdata(EVENT_META.user_id).display_name}** was updated",
+    "Notifications": [
+        {
+            "Type": "email"
+        }
+    ]
+}

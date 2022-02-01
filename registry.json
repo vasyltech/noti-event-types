@@ -96,5 +96,47 @@
         "excerpt": "Track when a user toggled either enable or disable auto-update for a theme on the \"Appearance\" page.",
         "category": "Theme Management",
         "status": "active"
+    },
+    {
+        "guid": "92d36595-58f2-4473-babe-df79d27a008d",
+        "title": "Theme Switch",
+        "excerpt": "Track theme switch by a user from the WordPress backend \"Appearance\" page, via RESTful API or WordPress CLI.",
+        "category": "Theme Management",
+        "status": "active"
+    },
+    {
+        "guid": "52425269-53c5-4101-b999-ab5f466fc986",
+        "title": "New User Registration",
+        "excerpt": "Track new user registration or whenever new user profile is successfully added to the website",
+        "category": "User Management",
+        "status": "active"
+    },
+    {
+        "guid": "3c1b4410-011d-4e33-82a2-27a7f47a68b0",
+        "title": "User Profile Updated",
+        "excerpt": "Track when any user's profile is updated",
+        "category": "User Management",
+        "status": "active"
+    },
+    {
+        "guid": "8d09c9e9-b232-412d-99ed-5bce9dc829dd",
+        "title": "User Deleted",
+        "excerpt": "Track when any user is deleted",
+        "category": "User Management",
+        "status": "active"
+    },
+    {
+        "guid": "f5385dbc-7005-4528-ac59-053a2d7be275",
+        "title": "Post Status Changed",
+        "excerpt": "Track when a user changes any post status (e.g. from draft to publish, or from publish to trash, etc.)",
+        "category": "Content Management",
+        "status": "active"
+    },
+    {
+        "guid": "d88eb993-9139-4d41-85cf-6061648332fe",
+        "title": "Post Updated",
+        "excerpt": "Track when a user updates any post. By default, this event is aggregated by 30 minutes time interval.",
+        "category": "Content Management",
+        "status": "active"
     }
 ]

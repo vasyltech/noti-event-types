@@ -1,0 +1,17 @@
+{
+    "Event": "action:switch_theme",
+    "Level": "notice",
+    "RequiredVersion": "WordPress 4.5.0+",
+    "Metadata": {
+        "user_id": "${USER.ID}",
+        "user_ip": "${USER.ip}",
+        "old_theme": "${ARGS.2.name}",
+        "new_theme": "${ARGS.1.name}"
+    },
+    "MessageMarkdown": "**${FUNC.get_userdata(EVENT_META.user_id).display_name}** switch to the new **${EVENT_META.new_theme}** theme from the **${EVENT_META.old_theme}** theme",
+    "Notifications": [
+        {
+            "Type": "email"
+        }
+    ]
+}

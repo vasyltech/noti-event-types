@@ -1,0 +1,19 @@
+{
+    "Event": "action:deleted_user",
+    "Level": "notice",
+    "RequiredVersion": "WordPress 5.5.0+",
+    "Metadata": {
+        "user_id": "${USER.ID}",
+        "user_ip": "${USER.ip}",
+        "reassign": "${ARGS.1}",
+        "deleted_user_id": "${ARGS.0}",
+        "deleted_user_name": "${ARGS.2.display_name}",
+        "deleted_user_email": "${ARGS.2.user_email}"
+    },
+    "MessageMarkdown": "**${FUNC.get_userdata(EVENT_META.user_id).display_name}** deleted the **${EVENT_META.deleted_user_name}** (${EVENT_META.deleted_user_email}) user",
+    "Notifications": [
+        {
+            "Type": "email"
+        }
+    ]
+}

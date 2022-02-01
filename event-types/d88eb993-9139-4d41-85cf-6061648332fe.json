@@ -1,0 +1,33 @@
+{
+    "Event": "action:save_post",
+    "Level": "notice",
+    "Metadata": {
+        "user_id": "${USER.ID}",
+        "user_ip": "${USER.ip}",
+        "post_id": "${ARGS.1.ID}",
+        "post_title": "${ARGS.1.post_title}"
+    },
+    "Aggregate": {
+        "ByAttributes": [
+            "${USER.ID}",
+            "${ARGS.1.ID}"
+        ],
+        "ByTimespan": 1800
+    },
+    "Condition": {
+        "NotEquals": {
+            "${ARGS.1.post_status}": "trash",
+            "(*boolean)${CONST.DOING_AUTOSAVE}": true
+        },
+        "Equals": {
+            "${ARGS.1.post_type}": "post",
+            "(*boolean)${ARGS.2}": true
+        }
+    },
+    "MessageMarkdown": "**${FUNC.get_userdata(EVENT_META.user_id).display_name}** updated the **${EVENT_META.post_title}** post (ID ${EVENT_META.post_id}) **${EVENT.counter}** time(s) within 30 minutes window",
+    "Notification": [
+        {
+            "Type": "email"
+        }
+    ]
+}

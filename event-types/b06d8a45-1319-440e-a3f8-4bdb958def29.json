@@ -15,5 +15,10 @@
             "(*null)${ARGS.1.theme}": null
         }
     },
-    "MessageMarkdown": "**${FUNC.get_userdata(EVENT_META.user_id).display_name}** upgraded the **${EVENT_META.theme}** theme"
+    "MessageMarkdown": "**${FUNC.get_userdata(EVENT_META.user_id).display_name}** upgraded the **${EVENT_META.theme}** theme",
+    "Notifications": [
+        {
+            "Type": "email"
+        }
+    ]
 }
