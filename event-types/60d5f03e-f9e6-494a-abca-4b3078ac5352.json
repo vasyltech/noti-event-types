@@ -1,6 +1,7 @@
 {
     "Event": "filter:pre_update_site_option_auto_update_themes",
     "Level": "notice",
+    "RequiredVersion": "WordPress 3.7.0+",
     "Metadata": {
         "user_id": "${USER.ID}",
         "user_ip": "${USER.ip}",

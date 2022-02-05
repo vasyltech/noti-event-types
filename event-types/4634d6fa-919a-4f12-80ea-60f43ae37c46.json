@@ -1,0 +1,17 @@
+{
+    "Event": "action:add_attachment",
+    "Level": "notice",
+    "RequiredVersion": "WordPress 2.0.0+",
+    "Metadata": {
+        "user_id": "${USER.ID}",
+        "user_ip": "${USER.ip}",
+        "post_id": "${ARGS.0}",
+        "post_title": "${FUNC.get_post(ARGS.0).post_title}"
+    },
+    "MessageMarkdown": "**${FUNC.get_userdata(EVENT_META.user_id).display_name}** uploaded new media file **${EVENT_META.post_title}** (ID: ${EVENT_META.post_id}) to the library",
+    "Notification": [
+        {
+            "Type": "email"
+        }
+    ]
+}

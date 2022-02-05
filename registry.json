@@ -1,42 +1,42 @@
 [
     {
         "guid": "3914d6fc-4c88-4e4a-90c9-8925968506e5",
-        "title": "WordPress Core Update",
-        "excerpt": "Track when a user from the WordPress backend \"Plugins\" page or through CLI upgraded the WordPress core.",
+        "title": "WordPress Core Updated",
+        "excerpt": "Track when users upgraded the WordPress core.",
         "category": "Core Management",
         "status": "active"
     },
     {
         "guid": "648112da-6b94-49ed-96cd-d2246fa147fd",
-        "title": "Plugin Activation",
+        "title": "Plugin Activated",
         "excerpt": "Track any plugin activation by a user from the WordPress backend \"Plugins\" page, via RESTful API or WordPress CLI.",
         "category": "Plugin Management",
         "status": "active"
     },
     {
         "guid": "322ea61c-9466-49b6-b0bf-714790caefe2",
-        "title": "Plugin Update",
+        "title": "Plugin Updated",
         "excerpt": "Track any plugin updates (upgrades) by a user from the WordPress backend \"Plugins\" page, via RESTful API or WordPress CLI.",
         "category": "Plugin Management",
         "status": "active"
     },
     {
         "guid": "c7d7c224-0c48-4b64-a67c-d18eac19c01d",
-        "title": "Plugin Deactivation",
+        "title": "Plugin Deactivated",
         "excerpt": "Track any plugin deactivation by a user from the WordPress backend \"Plugins\" page, via RESTful API or WordPress CLI.",
         "category": "Plugin Management",
         "status": "active"
     },
     {
         "guid": "87df3855-d38b-44f2-a483-2bccdee8f060",
-        "title": "Plugin Installation",
+        "title": "Plugin Installed",
         "excerpt": "Track any plugin installation by a user from the WordPress backend \"Plugins\" page, via RESTful API or WordPress CLI.",
         "category": "Plugin Management",
         "status": "active"
     },
     {
         "guid": "4882d8b6-b32d-4e2b-8d0f-1074ab214051",
-        "title": "Plugin Deletion",
+        "title": "Plugin Deleted",
         "excerpt": "Track any plugin deletion by a user from the WordPress backend \"Plugins\" page, via RESTful API or WordPress CLI.",
         "category": "Plugin Management",
         "status": "active"
@@ -78,7 +78,7 @@
     },
     {
         "guid": "e8f39a63-bffb-4122-b4e9-109689abfb30",
-        "title": "Theme Installation",
+        "title": "Theme Installed",
         "excerpt": "Track any theme installation by a user from the WordPress backend \"Appearance\" page, via RESTful API or WordPress CLI.",
         "category": "Theme Management",
         "status": "active"
@@ -99,14 +99,14 @@
     },
     {
         "guid": "92d36595-58f2-4473-babe-df79d27a008d",
-        "title": "Theme Switch",
+        "title": "Theme Switched",
         "excerpt": "Track theme switch by a user from the WordPress backend \"Appearance\" page, via RESTful API or WordPress CLI.",
         "category": "Theme Management",
         "status": "active"
     },
     {
         "guid": "52425269-53c5-4101-b999-ab5f466fc986",
-        "title": "New User Registration",
+        "title": "New User Registered",
         "excerpt": "Track new user registration or whenever new user profile is successfully added to the website",
         "category": "User Management",
         "status": "active"
@@ -136,6 +136,13 @@
         "guid": "d88eb993-9139-4d41-85cf-6061648332fe",
         "title": "Post Updated",
         "excerpt": "Track when a user updates any post. By default, this event is aggregated by 30 minutes time interval.",
+        "category": "Content Management",
+        "status": "active"
+    },
+    {
+        "guid": "4634d6fa-919a-4f12-80ea-60f43ae37c46",
+        "title": "Media File Uploaded",
+        "excerpt": "Track when a user uploads/adds new media file to the media library.",
         "category": "Content Management",
         "status": "active"
     }

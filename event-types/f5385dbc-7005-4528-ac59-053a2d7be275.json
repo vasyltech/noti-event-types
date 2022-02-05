@@ -1,6 +1,7 @@
 {
     "Event": "action:transition_post_status",
     "Level": "notice",
+    "RequiredVersion": "WordPress 2.3.0+",
     "Metadata": {
         "user_id": "${USER.ID}",
         "user_ip": "${USER.ip}",
