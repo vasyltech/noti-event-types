@@ -1,6 +1,6 @@
 {
     "Event": "action:switch_theme",
-    "Level": "notice",
+    "Level": "attention",
     "RequiredVersion": "WordPress 4.5.0+",
     "Metadata": {
         "user_id": "${USER.ID}",

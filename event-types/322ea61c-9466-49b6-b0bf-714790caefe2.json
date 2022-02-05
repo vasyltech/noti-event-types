@@ -1,6 +1,6 @@
 {
     "Event": "filter:upgrader_install_package_result",
-    "Level": "attention",
+    "Level": "critical",
     "RequiredVersion": "WordPress 5.7.0+",
     "Metadata": {
         "user_id": "${USER.ID}",

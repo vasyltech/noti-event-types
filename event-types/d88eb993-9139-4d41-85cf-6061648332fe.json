@@ -13,7 +13,7 @@
             "${USER.ID}",
             "${ARGS.1.ID}"
         ],
-        "ByTimespan": 1800
+        "ByTimeSegment": "1800s"
     },
     "Condition": {
         "NotEquals": {

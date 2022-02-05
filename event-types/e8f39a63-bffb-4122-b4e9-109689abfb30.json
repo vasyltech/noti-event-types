@@ -1,6 +1,6 @@
 {
     "Event": "filter:upgrader_process_complete",
-    "Level": "warning",
+    "Level": "critical",
     "RequiredVersion": "WordPress 5.5.0+",
     "Metadata": {
         "user_id": "${USER.ID}",
