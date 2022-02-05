@@ -50,7 +50,9 @@ The `Condition` is where the great power of these configurations come from. Basi
 
 The `MessageMarkdown` is optional, however, useful way to construct your own custom message that you'll see on the "Activity Log" page inside your WordPress dashboard. This message property is also used to compile the message that is send as notification to your email box. It heavily relies on the information that is captured when event occurred, so if you need to be more verbose with your message, you probably would want to declare more key/value pairs in the `Metadata` property.
 
-Last, but not least, the `Notifications` contains the array of notification types that will be triggered to route captured events to  different destination(s). In the initial Noti version, to avoid performance issues, events are captured in the database first, and then routed to elsewhere with WordPress cron job that occurs every minute. This behavior may be changed in later Noti versions if more near-to-realtime notifications will be needed. A bit more information about currently supported notification types you can find below.
+The `Notifications` contains the array of notification types that will be triggered to route captured events to  different destination(s). In the initial Noti version, to avoid performance issues, events are captured in the database first, and then routed to elsewhere with WordPress cron job that occurs every minute. This behavior may be changed in later Noti versions if more near-to-realtime notifications will be needed. A bit more information about currently supported notification types you can find below.
+
+There are also two additional supported properties `Aggregate` and `Listener` that are more advanced topics and I'm explaining them in greater details below.
 
 ## Configuration Markers
 
@@ -67,13 +69,87 @@ Below is the list of currently supported markers and how they can be used:
 * `${WP_OPTION.optionName}` get current site option. This invokes WordPress core [get_option](https://developer.wordpress.org/reference/functions/get_option/) function or [get_site_option](https://developer.wordpress.org/reference/functions/get_site_option/) if multisite.
 * `${WP_SITE.siteDetail}` get current site detail. This invokes WordPress core [get_blog_details](https://developer.wordpress.org/reference/functions/get_blog_details/) function.
 * `${PHP_GLOBAL.variableName}` get globally available in the `$_GLOBALS` variable's value.
-* `${LISTENER.metaName}`
-* `${EVENT_META.metaName}`
-* `${EVENT.propertyName}`
-* `${EVENT_TYPE.propertyName}`
-* `${EVENT_TYPE_META.metaName}`
+* `${LISTENER.N.metaName}` get meta data from any specific listener (advanced topic I'm covering below).
+* `${EVENT_META.metaName}` get captured event's meta data. Basically any captured properties defined in the `Metadata`.
+* `${EVENT.propertyName}` get event's property. Basically any column from the `noti_events` database table (e.g. `site_id`, `counter`, `last_occurrence_at`, etc).
+* `${EVENT_TYPE.propertyName}` get event types property. Under the hood, event type is just another custom post type that is stored in the `posts` database table. You can access any column with this marker (e.g. `post_modified`, `post_author`, `post_title`, etc.).
+* `${EVENT_TYPE_META.metaName}` get meta data from event type. Basically any metadata value from `postmeta` database table.
 
 ## Notification Types
+
+Noti uses automated WordPress cron-job scheduler that runs every minute and routes aggregated list of "sealed" events to one or more destinations (for more information about the same events consolidation and when event is considered "sealed", check the "Aggregate" section below). Currently three distinct destinations are implemented and more will come as plugin evolves.
+
+> FYI! WordPress cron-job is actually is not something that triggers itself on regular basis and depends on how often website is used. That is why there is no guarantee that newly captured events will be send within a minute.
+
+The default and global configurations for all supported notification types can be found on the "Activity Log -> Settings" page and they are as following:
+
+```json
+[
+    {
+        "Type": "email",
+        "Status": "active",
+        "Subject": "WP Activity Notifications",
+        "BodyTemplate": "${WP_NETWORK_OPTION.noti-email-notification-tmpl}",
+        "SendAsHTML": true
+    },
+    {
+        "Type": "file",
+        "Status": "inactive",
+        "Filepath": "${CONST.ABSPATH}/../youlogfile.log",
+        "MessageMarkdown": "[${EVENT.first_occurrence_at}] ${FUNC.ucfirst(EVENT_META.level)} (${EVENT.counter}): ${FUNC.get_userdata(EVENT_META.user_id).display_name} (ID: ${EVENT_META.user_id}) triggered the ${EVENT_TYPE.post_title} event"
+    },
+    {
+        "Status": "inactive",
+        "Type": "webhook",
+        "Url": "https://yourdesiredurl",
+        "Method": "POST",
+        "Headers": [
+            "Authorization: Bearer jkkj",
+            "Content-Type: application/json"
+        ],
+        "Payload": {
+            "event_name": "${EVENT_TYPE.post_title}",
+            "user_id": "${EVENT_META.user_id}"
+        }
+    }
+]
+```
+
+These configurations are global because they are inherited by every event type and you have the ability to override any global property within event type's configuration.
+
+## Aggregates
+
+The aggregates are designed to solve the typical problem of capturing repetitive information over certain period of time. For example, let's say you have a WordPress site that facilitates 100+ writers that continuously writing new blogs or editing existing. Every time a writer selects to save a blog, new event "Post Updated" is captured with some additional metadata. When the same writer selects to save a blog 10 times over the period of 30 minutes, your database will contain 10 very similar events with exactly the same metadata. That 10x your database storage usage unnecessarily. On the same note, if you need to capture event when user failed to login, you may ended up with millions of "Login Failed Attempt" events if password brute force attack was performed.
+
+The `Aggregate` property gives you the ability to aggregate (or rather consolidate) events by certain set of properties as well as time segment. Here is the example:
+
+```json
+{
+    "Event": "action:save_post",
+    "Aggregate": {
+        "ByAttributes": [
+            "${USER.ID}",
+            "${ARGS.1.ID}"
+        ],
+        "ByTimeSegment": "1800s"
+    }
+}
+```
+
+This will create only one event record in the database when the same user saves the same post multiple times over the time segment of 30 minutes (1800 seconds). In the `counter` column (in the `events` database table) will contain the total number of times the event occurred over specified segment of time.
+
+> Note! Please understand that under time segment I mean a finite number of time unites (e.g. seconds, days, months) starting since January 1st, 1970. For example, if `ByTimeSegment` equals `1i` (one minute), the same events that occurred on 2022-01-01 15:03:59 and then on 2022-01-01 15:04:01 (two seconds later) will be stored in database as two separate records as they belong to two different time segments. However, the same event that occurred hundred times between 2022-01-01 15:03:00 and 2022-01-01 15:03:59 will result in only one database record with `counter` column equals 100.
+
+The available time units are:
+
+* `y` for year
+* `m` for month
+* `d` for day
+* `h` for hour
+* `i` for minute
+* `s` for second
+
+## Listener
 
 TODO
 
