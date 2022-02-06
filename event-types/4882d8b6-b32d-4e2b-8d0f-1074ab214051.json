@@ -2,7 +2,7 @@
     "Event": "action:deleted_plugin",
     "Level": "critical",
     "RequiredVersion": "WordPress 4.4.0+",
-    "Listener": [
+    "Listeners": [
         {
             "Event": "action:delete_plugin",
             "Data": {
