@@ -1,5 +1,5 @@
 {
-    "Event": "filter:upgrader_process_complete",
+    "Event": "action:upgrader_process_complete",
     "Level": "critical",
     "RequiredVersion": "WordPress 5.5.0+",
     "Metadata": {
