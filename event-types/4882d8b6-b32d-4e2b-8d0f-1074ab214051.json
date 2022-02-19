@@ -5,7 +5,7 @@
     "Listeners": [
         {
             "Event": "action:delete_plugin",
-            "Data": {
+            "Metadata": {
                 "plugin": "${FUNC.get_plugin_data(ARGS.0).Name}"
             }
         }
