@@ -160,7 +160,7 @@ In some instances, subscribing to a very specific hook does not give us all the 
     "Listeners": [
         {
             "Event": "action:delete_plugin",
-            "Data": {
+            "Metadata": {
                 "plugin": "${FUNC.get_plugin_data(ARGS.0).Name}"
             }
         }
