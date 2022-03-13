@@ -1,0 +1,13 @@
+{
+    "Event": "action:delete_term",
+    "Level": "notice",
+    "RequiredVersion": "WordPress 2.3.0+",
+    "Metadata": {
+        "user_id": "${USER.ID}",
+        "user_ip": "${USER.ip}",
+        "term_id": "${ARGS.0}",
+        "term_taxonomy": "${ARGS.2}",
+        "term_name": "${ARGS.3.name}"
+    },
+    "MessageMarkdown": "**${FUNC.get_userdata(EVENT_META.user_id).display_name}** deleted a   **${EVENT_META.term_name}** (term_id ${EVENT_META.term_id}) term of ${EVENT_META.term_taxonomy} taxonomy"
+}

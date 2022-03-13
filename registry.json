@@ -145,5 +145,26 @@
         "excerpt": "Track when a user uploads/adds new media file to the media library.",
         "category": "Content Management",
         "status": "active"
+    },
+    {
+        "guid": "b462b177-e0b1-4ce6-b33d-7b8c9356ffde",
+        "title": "Term Created",
+        "excerpt": "Track when a new term of any taxonomy is created.",
+        "category": "Term Management",
+        "status": "active"
+    },
+    {
+        "guid": "395b327c-67cd-457f-a717-f97802f0b06e",
+        "title": "Term Updated",
+        "excerpt": "Track when a term of any taxonomy is updated.",
+        "category": "Term Management",
+        "status": "active"
+    },
+    {
+        "guid": "b04441b0-172b-4c59-b61e-4f8f5081c708",
+        "title": "Term Deleted",
+        "excerpt": "Track when a term of any taxonomy is deleted.",
+        "category": "Term Management",
+        "status": "active"
     }
 ]
